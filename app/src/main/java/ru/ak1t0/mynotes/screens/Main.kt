@@ -39,7 +39,6 @@ fun MainScreen(navController: NavHostController) {
     val context = LocalContext.current
     val mViewModel: MainViewModel =
         viewModel(factory = MainViewModelFactory(context.applicationContext as Application))
-    val notes = mViewModel.readTest.observeAsState(listOf()).value
 
     Scaffold(
         floatingActionButton = {
@@ -61,11 +60,11 @@ fun MainScreen(navController: NavHostController) {
 //            NoteItem(title = "Note 2", subtitle = "Sub for Note 2", navController = navController)
 //            NoteItem(title = "Note 3", subtitle = "Sub for Note 3", navController = navController)
 //        }
-        LazyColumn {
-            items(notes) { note ->
-                NoteItem(note = note, navController = navController)
-            }
-        }
+//        LazyColumn {
+//            items(notes) { note ->
+//                NoteItem(note = note, navController = navController)
+//            }
+//        }
     }
 }
 
