@@ -28,7 +28,7 @@ import ru.ak1t0.mynotes.utils.TYPE_ROOM
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun StartScreen(navController: NavHostController) {
+fun StartScreen(navController: NavHostController, viewModel: MainViewModel) {
     val context = LocalContext.current
     val mViewModel: MainViewModel =
         viewModel(factory = MainViewModelFactory(context.applicationContext as Application))
@@ -71,10 +71,10 @@ fun StartScreen(navController: NavHostController) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun prevStartScreen() {
-    MyNotesTheme {
-        StartScreen(navController = rememberNavController())
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun prevStartScreen() {
+//    MyNotesTheme {
+//        StartScreen(navController = rememberNavController(), viewModel = mViewModel)
+//    }
+//}

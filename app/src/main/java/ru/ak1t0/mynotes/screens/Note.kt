@@ -15,10 +15,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import ru.ak1t0.mynotes.MainViewModel
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun NoteScreen(navController: NavHostController) {
+fun NoteScreen(navController: NavHostController, viewModel: MainViewModel) {
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) {
