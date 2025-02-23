@@ -9,6 +9,7 @@ import ru.ak1t0.mynotes.screens.AddScreen
 import ru.ak1t0.mynotes.screens.MainScreen
 import ru.ak1t0.mynotes.screens.NoteScreen
 import ru.ak1t0.mynotes.screens.StartScreen
+import ru.ak1t0.mynotes.utils.Constants
 
 sealed class NavRoute(val route: String){
     object Start: NavRoute("start_screen")
@@ -25,6 +26,8 @@ fun NotesNavHost(mViewModel: MainViewModel) {
         composable(NavRoute.Start.route) { StartScreen(navController = navController, viewModel = mViewModel) }
         composable(NavRoute.Add.route) { AddScreen(navController = navController, viewModel = mViewModel) }
         composable(NavRoute.Main.route) { MainScreen(navController = navController, viewModel = mViewModel) }
-        composable(NavRoute.Note.route) { NoteScreen(navController = navController, viewModel = mViewModel) }
+        composable(NavRoute.Note.route + "/{${Constants.Keys.ID}}") { backStackEntry ->
+            NoteScreen(navController = navController, viewModel = mViewModel, noteID = backStackEntry.arguments?.getString(Constants.Keys.ID))
+        }
     }
 }
